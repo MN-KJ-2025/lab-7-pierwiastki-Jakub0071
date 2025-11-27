@@ -102,7 +102,7 @@ def is_nonsingular(A: np.ndarray) -> bool | None:
     if A.shape[0] != A.shape[1]:
         return None
     
-    if np.linalg.det(A) == 0:
+    det = np.linalg.det(A)
+    if abs(det) < np.finfo(float).eps:
         return False
-    else:
-        return True
+    return True
