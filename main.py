@@ -95,4 +95,14 @@ def is_nonsingular(A: np.ndarray) -> bool | None:
             wypadku `False`.
         Jeżeli dane wejściowe są niepoprawne funkcja zwraca `None`.
     """
-    pass
+    if not isinstance(A, np.ndarray):
+        return None
+    if A.ndim != 2:
+        return None
+    if A.shape[0] != A.shape[1]:
+        return None
+    
+    if np.linalg.det(A) == 0:
+        return False
+    else:
+        return True
